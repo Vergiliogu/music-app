@@ -1,7 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
-// const CopyWebpackPlugin = require('copy-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
 	entry: './src/index.tsx',
@@ -37,5 +37,12 @@ module.exports = {
 	plugins: [
 		new HtmlWebpackPlugin({template: './public/index.html'}),
 		new ESLintPlugin(),
+		new CopyWebpackPlugin({
+			patterns: [
+				{
+					from: './public/favicon.ico',
+				}
+			],
+		})
 	]
 }
